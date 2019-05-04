@@ -1,4 +1,4 @@
-package main.java.leetcode.RevisionQns;
+package main.java.DataStructure.Tree;
 
 /*
 124. Binary Tree Maximum Path Sum
