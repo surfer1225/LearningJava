@@ -38,6 +38,7 @@ public class ImplementPow {
 
     public static void main(String[] args) {
         ImplementPow p = new ImplementPow();
-        System.out.println(p.myPow(2, -10));
+        System.out.println(p.myPow(2, 3));
+        System.out.println(p.myPow(2, 4));
     }
 }
