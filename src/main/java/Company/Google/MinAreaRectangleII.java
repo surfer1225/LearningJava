@@ -1,22 +1,22 @@
 package main.java.Company.Google;
 
 import java.util.*;
-​
+
 /*
 963. Minimum Area Rectangle II
-​
+
 Given a set of points in the xy-plane, determine the minimum area of any rectangle formed from these points,
 with sides not necessarily parallel to the x and y axes.
 If there isn't any rectangle, return 0.
-​
+
 Input: [[1,2],[2,1],[1,0],[0,1]]
 Output: 2.00000
 Explanation: The minimum area rectangle occurs at [1,2],[2,1],[1,0],[0,1], with an area of 2.
-​
+
 Input: [[0,1],[2,1],[1,1],[1,0],[2,0]]
 Output: 1.00000
 Explanation: The minimum area rectangle occurs at [1,0],[1,1],[2,1],[2,0], with an area of 1.
-​
+
 Input: [[0,3],[1,2],[3,1],[1,3],[2,1]]
 Output: 0
 Explanation: There is no possible rectangle to form from these points.
@@ -27,52 +27,52 @@ public class MinAreaRectangleII {
     2. when there are 3, check if it is possible
      */
     private double min = 0;
-​
+    
     class Pair {
         int x;
         int y;
-​
-        public Pair(int x, int y) {
+
+        Pair(int x, int y) {
             this.x = x;
             this.y = y;
         }
-​
+
         @Override
         public boolean equals(Object o) {
             if (!(o instanceof Pair)) return false;
             if (o == this) return true;
-​
+
             Pair another = (Pair) o;
             return another.x == this.x && another.y == this.y;
         }
-​
+
         @Override
         public int hashCode() {
             return this.x * 4001 + this.y * 31;
         }
     }
-​
+
     class AreaPairHelper {
         Pair pair;
         double area;
-​
-        public AreaPairHelper(Pair pair, double area) {
+        
+        AreaPairHelper(Pair pair, double area) {
             this.pair = pair;
             this.area = area;
         }
     }
-​
+
     public double minAreaFreeRect(int[][] points) {
         Set<Pair> pointSet = new HashSet<>();
         for (int[] point : points) {
             pointSet.add(new Pair(point[0],point[1]));
         }
-​
+
         backtrack(points, 0, pointSet, new ArrayList<>());
-​
+
         return min;
     }
-​
+
     private void backtrack(int[][] points, int start, Set<Pair> pointSet, List<Pair> acc) {
         //base condition
         if (acc.size()>2) return;
@@ -92,20 +92,18 @@ public class MinAreaRectangleII {
             }
         }
     }
-​
+
     private Optional<AreaPairHelper> getLastPairAndAreaInRectangle(Pair a, Pair b, Pair c) {
         Optional<AreaPairHelper> areaPairHelper = getLastPairAndAreaInRectangleHelper(a,b,c);
         if (areaPairHelper.isPresent()) return areaPairHelper;
-​
+
         areaPairHelper = getLastPairAndAreaInRectangleHelper(b,a,c);
         if (areaPairHelper.isPresent()) return areaPairHelper;
-​
+
         areaPairHelper = getLastPairAndAreaInRectangleHelper(c,a,b);
-        if (areaPairHelper.isPresent()) return areaPairHelper;
-​
-        return Optional.empty();
+        return areaPairHelper;
     }
-​
+
     /**
      *
      * @param a: point a
@@ -121,10 +119,10 @@ public class MinAreaRectangleII {
             Pair d = new Pair(c.x - a.x + b.x, c.y - a.y + b.y);
             return Optional.of(new AreaPairHelper(d, area));
         }
-​
+
         return Optional.empty();
     }
-​
+
     public static void main(String[] args) {
         MinAreaRectangleII m = new MinAreaRectangleII();
         System.out.println(m.minAreaFreeRect(new int[][]{{1,2},{2,1},{1,0},{0,1}}));
