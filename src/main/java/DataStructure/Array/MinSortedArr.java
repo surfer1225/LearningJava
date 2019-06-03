@@ -15,6 +15,21 @@ You may assume no duplicate exists in the array.
  */
 public class MinSortedArr {
     public int findMin(int[] nums) {
+        /*
+        int size = nums.length;
+        if (size==1) return nums[0];
+        int low = 0, high = size-1;
+
+        while (low<=high) {
+            if (nums[high]>nums[low]) return nums[low];
+            int mid = (low + high) / 2;
+            if (mid>0 && nums[mid]<nums[mid-1]) return nums[mid];
+            if (nums[mid]>nums[high]) low=mid+1;
+            else if (nums[mid]<nums[low]) high=mid-1;
+        }
+
+        return -1;
+         */
         if (nums.length==1) return nums[0];
         int res = findMinHelper(nums, 0, nums.length-1);
         return res==-1?nums[0]:nums[res];

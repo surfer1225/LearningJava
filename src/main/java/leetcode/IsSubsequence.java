@@ -44,7 +44,7 @@ public class IsSubsequence {
         */
         if (s.length()<=1) return t.contains(s);
         int i = t.indexOf(s.charAt(0));
-        return i<0?false:isSubsequence(s.substring(1), t.substring(i+1));
+        return i >= 0 && isSubsequence(s.substring(1), t.substring(i + 1));
     }
 
     public static void main(String[] args) {
