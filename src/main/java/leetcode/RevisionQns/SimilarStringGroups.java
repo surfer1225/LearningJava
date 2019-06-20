@@ -51,7 +51,7 @@ public class SimilarStringGroups {
 
         if (componentSize[pRoot] < componentSize[qRoot]) {
             componentSize[qRoot] += componentSize[pRoot];
-            roots[pRoot] = roots[qRoot];
+            roots[pRoot] = qRoot;
         }
         else {
             componentSize[pRoot] += componentSize[qRoot];
