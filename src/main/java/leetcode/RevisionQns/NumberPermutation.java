@@ -47,6 +47,11 @@ public class NumberPermutation {
 
     public static void main(String[] args) {
         NumberPermutation np = new NumberPermutation();
-        np.permute(new int[]{1,2,3});
+        List<List<Integer>> ll = np.permute(new int[]{1,2,1});
+        for (List<Integer> l:ll) {
+            for (int i:l)
+                System.out.print(i + " ");
+            System.out.println();
+        }
     }
 }
