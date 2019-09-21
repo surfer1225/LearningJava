@@ -10,6 +10,7 @@ public class KthSmallestElementInArray {
 
     public static int find(int [] A, int k){
         PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
+//        PriorityQueue<Integer> q = new PriorityQueue<>(Comparator.comparingInt(Integer::intValue));
         for(int i=0;i<A.length;i++){
             pq.offer(A[i]);
         }

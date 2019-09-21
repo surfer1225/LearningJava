@@ -1,4 +1,4 @@
-package main.java.Stripe;
+package main.java.Company.Stripe;
 
 import java.util.*;
 
