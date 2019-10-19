@@ -1,7 +1,6 @@
 package main.java.Company.Facebook;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /*
 Given a list of people with birth year and death year information

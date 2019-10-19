@@ -7,6 +7,7 @@ package main.java.leetcode;
  */
 public class MedianSortedArr {
     public static double findMedianSortedArrays(int[] A, int[] B) {
+
         int m = A.length;
         int n = B.length;
         if (m > n) { // to ensure m<=n
@@ -18,10 +19,10 @@ public class MedianSortedArr {
             int i = (iMin + iMax) / 2;
             int j = halfLen - i;
             if (i < iMax && B[j-1] > A[i]){
-                iMin = iMin + 1; // i is too small
+                iMin = i + 1; // i is too small
             }
             else if (i > iMin && A[i-1] > B[j]) {
-                iMax = iMax - 1; // i is too big
+                iMax = i - 1; // i is too big
             }
             else { // i is perfect
                 int maxLeft = 0;
@@ -42,9 +43,19 @@ public class MedianSortedArr {
     }
 
     public static void main(String[] args) {
-        int[] arr1 = {1, 2};
-        int[] arr2 = {3, 4};
-        System.out.println(findMedianSortedArrays(arr1, arr2));
+
+
+//        int[] arr5 = {1, 2};
+//        int[] arr6 = {-1, 4};
+//        System.out.println(findMedianSortedArrays(arr5, arr6));
+//
+//        int[] arr1 = {1, 2};
+//        int[] arr2 = {3, 4};
+//        System.out.println(findMedianSortedArrays(arr1, arr2));
+
+        int[] arr3 = {3,5};
+        int[] arr4 = {2};
+        System.out.println(findMedianSortedArrays(arr4, arr3));
     }
 }
 

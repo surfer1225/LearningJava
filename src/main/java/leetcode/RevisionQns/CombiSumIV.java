@@ -1,7 +1,8 @@
 package main.java.leetcode.RevisionQns;
 
 /*
-Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.
+Given an integer array with all positive numbers and no duplicates,
+find the number of possible combinations that add up to a positive integer target.
 
 Example:
 

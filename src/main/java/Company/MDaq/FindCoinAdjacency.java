@@ -1,6 +1,7 @@
 package main.java.Company.MDaq;
 
 /*
+FIXME: not working
 Find the max number of adjacency coins with the same face after flipping one coin
  */
 public class FindCoinAdjacency {
@@ -36,5 +37,6 @@ public class FindCoinAdjacency {
         System.out.println(solution(new int[]{1,1,0,1,0,0}));
         System.out.println(solution(new int[]{1,0,0,1,0,0}));
         System.out.println(solution(new int[]{1,1,1,1,1,1}));
+        System.out.println(solution(new int[]{1,0,1,1,1,0,1,1,1,0,0,0,1,1,1,1,0,1,0}));
     }
 }
