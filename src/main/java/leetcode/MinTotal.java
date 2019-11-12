@@ -33,6 +33,7 @@ public class MinTotal {
         if (triangle.size()-1==layer) return curSum;
         int left=minTotalHelper(triangle,layer+1, index, curSum);
         int right=minTotalHelper(triangle,layer+1, index+1, curSum);
+
         return Math.min(left, right);
     }
 
